@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :attractions
 
-  resources :users
+  resources :users, except: [:index, :destroy]
 
   root 'welcome#index'
 
