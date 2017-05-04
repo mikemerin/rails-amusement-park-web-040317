@@ -1,15 +1,17 @@
 class SessionsController < ApplicationController
 
   def new
-    # @user = User.new
-
   end
 
   def create
-    # @user = User.find_by(name: params[:name])
-    session[:name] = params[:name]
-    session[:password] = params[:password]
-    
+    if user_valid?(params[:name], params[:password])
+      session[:name] = params[:name]
+      session[:user_id] = current_user.id
+      # session[:name] = params[:name]
+      redirect_to user_path(current_user)
+    else
+      redirect_to login_path
+    end
   end
 
   def destroy
