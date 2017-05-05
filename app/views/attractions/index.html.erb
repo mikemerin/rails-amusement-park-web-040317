@@ -13,7 +13,11 @@
 <% @attractions.each do |attraction| %>
 
   <tr>
-    <td><%= link_to attraction.name, attraction %></td>
+    <% if current_user.admin %>
+      <td><%= link_to "Show #{attraction.name}", attraction %></td>
+    <% else %>
+      <td><%= link_to "Go on #{attraction.name}", attraction %></td>
+    <% end %>
     <td><%= attraction.tickets %></td>
     <td><%= attraction.min_height %></td>
     <td><%= attraction.nausea_rating %></td>
@@ -23,3 +27,7 @@
 <% end %>
 
 </table>
+
+<br>
+
+<%= link_to "New Attraction", new_attraction_path if current_user.admin %>

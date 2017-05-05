@@ -4,8 +4,6 @@
 <p><b>Nausea Rating: </b><%= @attraction.nausea_rating %></p>
 <p><b>Happiness Rating: </b><%= @attraction.happiness_rating %></p>
 
-<%= link_to "Go on this ride", rides_path(attraction_id: @attraction.id), method: "post" %><br>
-<%= "if user is an admin" %>
-<%= link_to "Edit This Attraction", edit_attraction_path(@attraction) %><br>
-<% "end" %>
+<%= button_to "Go on this ride", rides_path(attraction_id: @attraction.id), method: "post" %><br>
+<%= link_to "Edit Attraction", edit_attraction_path(@attraction) if current_user.admin %><br>
 <%= link_to "Back To All Attractions", attractions_path %>

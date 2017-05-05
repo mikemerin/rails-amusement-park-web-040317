@@ -1,4 +1,6 @@
-<h4><%= "Admin" if @user.admin %></h4>
+<h4><%= "ADMIN" if @user.admin %></h4>
+
+<%= "#{params[:message]}" if params[:message].present? %>
 
 <p><b>Name: </b><%= @user.name %></p>
 <p><b>Nausea: </b><%= @user.nausea %></p>
@@ -10,4 +12,4 @@
 <%= link_to "Edit This User", edit_user_path(@user) %><br>
 <%= link_to "See All Users", users_path %><br>
 <br>
-<%= link_to "See Attractions", attractions_path %>
+<%= link_to "See attractions", attractions_path %>
