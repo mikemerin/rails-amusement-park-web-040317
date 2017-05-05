@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user_valid?(params[:name], params[:password])
-      session[:name] = params[:name]
-      session[:user_id] = current_user.id
+    user = User.find_by(name: params[:user][:name])
+    if user_valid?(user, params[:user][:password])
+      session[:user_id] = user.id
       redirect_to user_path(current_user)
     else
       flash[:notice] = "Username or password wasn't found."

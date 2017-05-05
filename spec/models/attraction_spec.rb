@@ -22,8 +22,8 @@ RSpec.describe Attraction, :type => :model do
   end
 
   it "has many users through rides" do
-    max = User.create(name: "Max Charles", password: "password")
-    skai = User.create(name: "Skai Jackson", password: "password")
+    max = User.create(name: "Max Charles", password: "password", height: 60, nausea: 1, happiness: 5, tickets: 100)
+    skai = User.create(name: "Skai Jackson", password: "password", height: 60, nausea: 1, happiness: 5, tickets: 100)
     @attraction.users << [max, skai]
     expect(@attraction.users.first).to eq(max)
     expect(@attraction.users.last).to eq(skai)

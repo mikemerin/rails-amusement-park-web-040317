@@ -4,15 +4,12 @@ Rails.application.routes.draw do
 
   resources :attractions
 
-  resources :users, except: [ :destroy]
+  resources :users, except: [:destroy]
 
   root 'welcome#index'
 
   # resources :sessions, only: [:new, :create], as: 'login'
-  get '/login', to: "sessions#new", as: 'login'
-  post '/login', to: "sessions#create"
+  get '/signin', to: "sessions#new", as: 'login'
+  post '/signin', to: "sessions#create"
   delete '/logout', to: "sessions#destroy", as: 'logout'
-
-
-
 end

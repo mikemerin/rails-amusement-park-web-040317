@@ -25,12 +25,12 @@ class Ride < ActiveRecord::Base
   end
 
   def ride_this_ride
-     # binding.pry
      ticket_change = self.user.tickets - self.attraction.tickets
      nausea_change = self.user.nausea + self.attraction.nausea_rating
      happiness_change = self.user.happiness + self.attraction.happiness_rating
      self.user.update(tickets: ticket_change, nausea: nausea_change, happiness: happiness_change)
      "Thanks for riding #{self.attraction.name}!"
+     # binding.pry
    end
 
 end

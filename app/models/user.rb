@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 
   validates :height, presence: { scope: true, message: "must be entered" }
 
-  validates :nausea, inclusion: { in: 1..5, message: "must be between 1 and 5" }
-  validates :happiness, inclusion: { in: 1..5, message: "must be between 1 and 5" }
+  # validates :nausea, inclusion: { in: 1..5, message: "must be between 1 and 5" }
+  # validates :happiness, inclusion: { in: 1..5, message: "must be between 1 and 5" }
 
 
   validates :tickets, numericality: { greater_than_or_equal_to: 0, message: "(money) must be at least 0" }
