@@ -17,20 +17,20 @@ class Ride < ActiveRecord::Base
   end
 
   def not_enough_tickets
-    self.user.tickets >= self.attraction.tickets
+    self.user.tickets < self.attraction.tickets
   end
 
   def too_short
-    self.user.height >= self.attraction.min_height
+    self.user.height < self.attraction.min_height
   end
 
   def ride_this_ride
-    # binding.pry
-    self.user.tickets -= self.attraction.tickets_rating
-    self.user.nausea += self.attraction.nausea_rating
-    self.user.happiness += self.attraction.happiness_rating
-    self.user.update(:tickets, :nausea, :happiness)
-    "Thanks for riding #{self.attraction.name}!"
-  end
+     # binding.pry
+     ticket_change = self.user.tickets - self.attraction.tickets
+     nausea_change = self.user.nausea + self.attraction.nausea_rating
+     happiness_change = self.user.happiness + self.attraction.happiness_rating
+     self.user.update(tickets: ticket_change, nausea: nausea_change, happiness: happiness_change)
+     "Thanks for riding #{self.attraction.name}!"
+   end
 
 end

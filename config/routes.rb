@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :rides, only: [ :new ]
+  resources :rides, only: :create
 
   resources :attractions
 
