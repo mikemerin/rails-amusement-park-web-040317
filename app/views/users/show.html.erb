@@ -1,9 +1,13 @@
 <h4><%= "Admin" if @user.admin %></h4>
 
-<p>Name: <%= @user.name %></p>
-<p>Nausea: <%= @user.nausea %></p>
-<p>Happiness: <%= @user.happiness %></p>
-<p>Tickets: <%= @user.tickets %></p>
-<p>Height: <%= @user.height %></p>
+<p><b>Name: </b><%= @user.name %></p>
+<p><b>Nausea: </b><%= @user.nausea %></p>
+<p><b>Happiness: </b><%= @user.happiness %></p>
+<p><b>Mood: </b><%= @user.mood %></p>
+<p><b>Tickets: </b><%= @user.tickets %></p>
+<p><b>Height: </b><%= @user.height %></p>
 
-<%= link_to "Edit this user", edit_user_path(@user) %>
+<%= link_to "Edit This User", edit_user_path(@user) %><br>
+<%= link_to "See All Users", users_path %><br>
+<br>
+<%= link_to "See Attractions", attractions_path %>

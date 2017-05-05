@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 
-  # def index
-  #   @users = User.all
-  # end
+  # to put in later
+  # before_action: authorize_user, only: [:new, :edit, :update, :create]
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -11,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user)
+      redirect_to @user, notice: "User was created"
     else
       render :new
     end
@@ -28,8 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     if @user.update(user_params)
-      # flash[:notice] = "Your passwords must match."
-      redirect_to user_path(@user)
+      redirect_to @user, notice: "User was updated"
     else
       render :edit
     end
@@ -49,4 +51,5 @@ class UsersController < ApplicationController
       :admin
     )
   end
+
 end

@@ -1,0 +1,11 @@
+<p><b>Name: </b><%= @attraction.name %></p>
+<p><b>Tickets Required: </b><%= @attraction.tickets %></p>
+<p><b>Minimum Height: </b><%= @attraction.min_height %></p>
+<p><b>Nausea Rating: </b><%= @attraction.nausea_rating %></p>
+<p><b>Happiness Rating: </b><%= @attraction.happiness_rating %></p>
+
+<%= link_to "Go on this ride", new_ride_path %><br>
+<%= "if user is an admin" %>
+<%= link_to "Edit This Attraction", edit_attraction_path(@attraction) %><br>
+<% "end" %>
+<%= link_to "Back To All Attractions", attractions_path %>

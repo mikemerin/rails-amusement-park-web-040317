@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :rides
+  resources :rides, only: [ :new ]
 
   resources :attractions
 
-  resources :users, except: [:index, :destroy]
+  resources :users, except: [ :destroy]
 
   root 'welcome#index'
 
   # resources :sessions, only: [:new, :create], as: 'login'
   get '/login', to: "sessions#new", as: 'login'
   post '/login', to: "sessions#create"
-  delete '/logout', to: "sessions#create", as: 'logout'
+  delete '/logout', to: "sessions#destroy", as: 'logout'
+
+
 
 end

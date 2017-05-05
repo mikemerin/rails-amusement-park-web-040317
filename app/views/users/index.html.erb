@@ -1,0 +1,35 @@
+<h1>All Users</h1>
+
+<% if true %>
+<% "will change this to if user is an admin (edit later)" %>
+
+  <table border="2">
+  <tr>
+      <th>Name</th>
+      <th>Height</th>
+      <th>Nausea</th>
+      <th>Happiness</th>
+      <th>Tickets</th>
+      <th>Admin</th>
+  </tr>
+
+  <% @users.each do |user| %>
+
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td><%= user.height %></td>
+      <td><%= user.nausea %></td>
+      <td><%= user.happiness %></td>
+      <td><%= user.tickets %></td>
+      <td><%= user.admin ? "Yes" : "" %></td>
+    </tr>
+
+  <% end %>
+
+  </table>
+
+<% else %>
+
+  You must be an admin to view this page.
+
+<% end %>

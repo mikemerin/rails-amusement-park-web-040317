@@ -1,6 +1,14 @@
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @user do |f| %>
   <h4>Login info:</h4>
-  <%= f.label :name %><br>
+  <%= f.label "Username:" %><br>
   <%= f.text_field :name %><br>
   <%= f.label "Enter your password:" %><br>
   <%= f.password_field :password %><br>
@@ -8,17 +16,17 @@
   <%= f.password_field :password_confirmation %><br>
   <br>
   <h4>Your info:</h4>
-  <%= f.label :height %><br>
+  <%= f.label "Height (inches)" %><br>
   <%= f.number_field :height %><br>
-  <%= f.label :nausea %><br>
+  <%= f.label "Nausea (from 1-5)" %><br>
   <%= f.number_field :nausea %><br>
-  <%= f.label :happiness %><br>
+  <%= f.label "Happiness (from 1-5)" %><br>
   <%= f.number_field :happiness %><br>
-  <%= f.label :tickets %><br>
+  <%= f.label "Your money ($)" %><br>
   <%= f.number_field :tickets %><br><br>
   <%= f.check_box :admin %>
   <%= f.label "Check if you own this theme park" %><br><br>
 
-  <%= f.submit "Sign Up"%><br>
+  <%= f.submit %><br>
 
 <% end %>
